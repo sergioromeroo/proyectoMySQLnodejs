@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "sergio",
+    "email": "manu@gmail.com",
+    "contrasenia": "$2a$10$BfPJ4Gzv80S9RGQ7I87A5usOfmY5sj.cZze2gbZmRy51L.p6HVim."
+  },
+  {
+    "id": 2,
+    "nombre": "sergioo",
+    "email": "manolo@gmail.com",
+    "contrasenia": "$2a$10$v.V/Xj22/PTKKj5ffsEueOXbwxKdsrF9p.acWC74dmq7vMrMAiRL2"
+  },
+  {
+    "id": 3,
+    "nombre": "manu",
+    "email": "manu@gmail.com",
+    "contrasenia": "$2a$10$Wu1PITbABn6LSkW42yFS1e2q9Vp95XF3m.Jhqud3LF4YP5PdTyADe",
+    "rol": "user"
+  },
+  {
+    "id": 4,
+    "nombre": "manolo",
+    "email": "manolo2@gmail.com",
+    "contrasenia": "$2a$10$vElFLcRjlpMmLWGnUOTh0eg6rppWEocL1wn6A2yTCydgBnSzknWtK",
+    "rol": "user"
+  },
+  {
+    "id": 5,
+    "nombre": "taty",
+    "email": "taty@gmail.com",
+    "contrasenia": "$2a$10$ZU.P8qMiM9fV2VqUJMM5wO971tOjZ8wNQBxHvRVkmuoAkB/8i5F7y",
+    "rol": "admin"
+  },
+  {
+    "id": 6,
+    "nombre": "Valentino",
+    "email": "vale.cambria@hotmail.com",
+    "contrasenia": "$2a$10$fynuRvHVBdaAi.9sLfWzP.QXGk91MS9Eb0Fdg9tqD6VvU5ew05XY6",
+    "rol": "admin"
+  }
+]
