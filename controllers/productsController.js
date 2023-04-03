@@ -6,7 +6,31 @@ const {productosdb,guardar} = require('../data/productsdb')
 const categorias = require('../data/categoriasdb')
 const {validationResult} = require('express-validator')
 
+const database = require('../database/models')
+
+
 module.exports = {
+
+    products : (req, res) => {
+        var datos = database.Product.findAll({
+            include : [
+                {
+                    association : 'images'
+                }
+            ]
+        }) 
+
+        Promise.all([datos])
+        .then(([datos])=>{
+            
+            return res.render('productos',{
+                datos,  
+            })
+        })
+        
+    },
+
+
     add : (req,res) => {
         //res.send(categorias)
         return res.render('addProducts',{
@@ -101,8 +125,6 @@ module.exports = {
  */        guardar(productosdb)
         return res.redirect('/')
     },
-    products : (req, res) => {
-        res.render('products')
-    }
+
 
 }
