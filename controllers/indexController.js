@@ -23,10 +23,10 @@ module.exports = {
             },
             include : [
                 {
+                    limit : 8,
                     association : 'products',
-                    include : [
-                        {association : 'images'}
-                    ]
+                    include : [{association : 'images'}]
+                     
                 }
             ]
         });

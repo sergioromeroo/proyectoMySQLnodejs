@@ -22,14 +22,14 @@ const upload = multer({
     storage,
 })
 
-const {add,detalle,search, save, edit, update, destroy, products} = require('../controllers/productsController');
+const {add,detail,search, save, edit, update, destroy, products} = require('../controllers/productsController');
 
 
 
 router.get('/add',adminUserCheck,add);
 //post enviar datos al formulario de addproduct
 router.post('/add',upload.single('imagen'),addProductValidator,save)
-router.get('/detalles',detalle)
+router.get('/detail/:id',detail)
 router.get('/edit/:id',edit)
 router.put('/edit/:id',update)
 router.get('/search',search)

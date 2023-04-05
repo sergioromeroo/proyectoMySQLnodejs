@@ -5,10 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon -->
-  <link rel="shortcut icon" href="./images/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  
 
   <!-- Custom StyleSheet -->
   <link rel="stylesheet" href="/stylesheets/index.css" />
@@ -16,21 +15,20 @@
 </head>
 
 <body>
-
+ 
   <!-- Navigation -->
-  
-    <nav class="nav">
+  <nav class="nav">
     <div class="wrapper container">
       <div class="logo"><a href="">
-        <img src="./images/logo.png" alt="">
+        <img src="/images/logo.png" alt="">
       </a>
       </div>
       <ul class="nav-list">
         <div class="top">
           <label for="" class="btn close-btn"><i class="fas fa-times"></i></label>
         </div>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
         <li>
           <a href="" class="desktop-item">Shop <span><i class="fas fa-chevron-down"></i></span></a>
           <input type="checkbox" id="showMega" />
@@ -38,7 +36,7 @@
           <div class="mega-box">
             <div class="content">
               <div class="row">
-                <img src="./images/nav.png" alt="" />
+                <img src="/images/nav.png" alt="" />
               </div>
               <div class="row">
                 <header>Shop Layout</header>
@@ -96,193 +94,105 @@
         <li class="icons">
           <a href="cart.html">
             <span>
-            <img src="./images/shoppingBag.svg" alt="" />
+            <img src="/images/shoppingBag.svg" alt="" />
             <small class="count d-flex">0</small>
           </span>
           </a>
-          <span><img src="./images/search.svg" alt="" /></span>
+          <span><img src="/images/search.svg" alt="" /></span>
         </li>
       </ul>
       <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
     </div>
   </nav>
 
-  <!-- PRODUCTS -->
-
-  <section class="section products">
-    <div class="products-layout container">
-      <div class="col-1-of-4">
-        <div>
-          <div class="block-title">
-            <h3>Category</h3>
-          </div>
-
-          <ul class="block-content">
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Shoes</span>
-                <small>(10)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Bags</span>
-                <small>(7)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span> Accessories</span>
-                <small>(3)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Clothings</span>
-                <small>(3)</small>
-              </label>
-            </li>
-          </ul>
+  <!-- Product Details -->
+  <section class="section product-detail">
+    <div class="details container">
+      <div class="left">
+        <div class="main">
+          <img src="/img/ropa/<%= producto.images[0].file %>" alt="" />
         </div>
-
-        <div>
-          <div class="block-title">
-            <h3>Brands</h3>
+        <div class="thumbnails">
+          <div class="thumbnail">
+            <img src="/images/product-2.jpg" alt="foto1" />
           </div>
-
-          <ul class="block-content">
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Gucci</span>
-                <small>(10)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Burberry</span>
-                <small>(7)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span> Accessories</span>
-                <small>(3)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Valentino</span>
-                <small>(3)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Dolce & Gabbana</span>
-                <small>(3)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Hogan</span>
-                <small>(3)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Moreschi</span>
-                <small>(3)</small>
-              </label>
-            </li>
-
-            <li>
-              <input type="checkbox" name="" id="">
-              <label for="">
-                <span>Givenchy</span>
-                <small>(3)</small>
-              </label>
-            </li>
-          </ul>
+          <div class="thumbnail">
+            <img src="/images/product-3.jpg" alt="foto2" />
+          </div>
+          <div class="thumbnail">
+            <img src="/images/product-4.jpg" alt="foto3" />
+          </div>
+          <div class="thumbnail">
+            <img src="/images/product-5.jpg" alt="foto4" />
+          </div>
         </div>
       </div>
-      <div class="col-3-of-4">
-        <form action="">
-          <div class="item">
-            <label for="sort-by">Sort By</label>
-            <select name="sort-by" id="sort-by">
-              <option value="title" selected="selected">Name</option>
-              <option value="number">Price</option>
-              <option value="search_api_relevance">Relevance</option>
-              <option value="created">Newness</option>
+      <div class="right">
+        <span>Categoria: <%= producto.category.name %></span>
+        <h1><%= producto.name %></h1>
+        <div class="price">$<%= producto.price %></div>
+        <form>
+          <div>
+            <select>
+              <option value="Select Quantity" selected disabled>
+                Select Quantity
+              </option>
+              <option value="1">32</option>
+              <option value="2">42</option>
+              <option value="3">52</option>
+              <option value="4">62</option>
             </select>
+            <span><i class="fas fa-chevron-down"></i></span>
           </div>
-          <div class="item">
-            <label for="order-by">Order</label>
-            <select name="order-by" id="sort-by">
-              <option value="ASC" selected="selected">ASC</option>
-              <option value="DESC">DESC</option>
-            </select>
-          </div>
-          <a href="">Apply</a>
         </form>
 
-        <div class="product-layout">
+        <form class="form">
+          <input type="text" placeholder="1" />
+          <a href="cart.html" class="addCart">Add To Cart</a>
+        </form>
+        <h3>Descripcion del producto</h3>
+        <p>
+          <%= producto.description %>
+        </p>
+      </div>
+    </div>
+  </section>
 
-          <% datos.forEach(producto => { %>
-           
-            <div class="product">
-              <div class="img-container">
-                <img src="/img/ropa/<%= producto.images[0] ? producto.images[0].file : null %>" alt="" />
-                <div class="addCart">
-                  <i class="fas fa-shopping-cart"></i>
-                </div>
-  
-                <ul class="side-icons">
-                  <span><i class="fas fa-search"></i></span>
-                  <span><i class="far fa-heart"></i></span>
-                  <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-              </div>
-              <div class="bottom">
-                <a href="productDetails.html"><%= producto.name %></a>
-                <div class="price">
-                  <span>$<%= producto.price %></span>
-                </div>
-              </div>
+  <!-- Related Products -->
+
+  <section class="section related-products">
+    <div class="title">
+      <h2>Related Products</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+    <div class="product-layout container">
+
+      <% relacionados.forEach(element => { %>
+       
+        <div class="product">
+          <div class="img-container">
+            <img src="/img/ropa/<%= producto.images[0].file %>" alt="" />
+            <div class="addCart">
+              <i class="fas fa-shopping-cart"></i>
             </div>
-
-          <% }) %>
-
-
+  
+            <ul class="side-icons">
+              <span><i class="fas fa-search"></i></span>
+              <span><i class="far fa-heart"></i></span>
+              <span><i class="fas fa-sliders-h"></i></span>
+            </ul>
+          </div>
+          <div class="bottom">
+            <a href=""><%= producto.name %></a>
+            <div class="price">
+              <span>$<%= producto.price %></span>
+            </div>
+          </div>
         </div>
 
-        <!-- PAGINATION -->
-        <ul class="pagination">
-          <span>1</span>
-          <span>2</span>
-          <span class="icon">››</span>
-          <span class="last">Last »</span>
-        </ul>
-      </div>
+      <% }) %>
+      
+
     </div>
   </section>
 
@@ -335,7 +245,7 @@
             456-456-4512
           </div>
           <div class="payment-methods">
-            <img src="./images/payment.png" alt="">
+            <img src="/images/payment.png" alt="">
           </div>
         </div>
       </div>
@@ -345,11 +255,7 @@
   <!-- End Footer -->
 
   <!-- Custom Scripts -->
-  <script src="./js/index.js"></script>
+  <script src="../js/index.js"></script>
 </body>
 
 </html>
-
-
-      
-

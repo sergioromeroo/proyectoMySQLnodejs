@@ -2,782 +2,602 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casmart - Biggest shopping center</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+ <!-- ======== Swiper Js ======= -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css"
+    />
 
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="../stylesheets/indexPlantilla.css">
-
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="/stylesheets/index.css" />
+  <title>Nature Ecommerce Website</title>
 </head>
 
 <body>
 
-  <!-- 
-    - #HEADER
-  -->
-
-
-
-  <header class="header" data-header>
-    <div class="container">
-
-      <div class="overlay" data-overlay></div>
-
-      <div class="header-search">
-        <input type="search" name="search" placeholder="Search Product..." class="input-field">
-
-        <button class="search-btn" aria-label="Search">
-          <ion-icon name="search-outline"></ion-icon>
-        </button>
-      </div>
-
-      <a href="#" class="logo">
-        <img src="../img/indexPlantilla/logo.svg" alt="Casmart logo" width="130" height="31">
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrapper container">
+      <div class="logo"><a href="">
+        <img src="../images/logo.png" alt="">
       </a>
-
-      <div class="header-actions">
-
-        <button class="header-action-btn">
-          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-
-          <p class="header-action-label">Sign in</p>
-        </button>
-
-        <button class="header-action-btn">
-          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-
-          <p class="header-action-label">Search</p>
-        </button>
-
-        <button class="header-action-btn">
-          <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-
-          <p class="header-action-label">Cart</p>
-
-          <div class="btn-badge green" aria-hidden="true">3</div>
-        </button>
-
-        <button class="header-action-btn">
-          <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
-
-          <p class="header-action-label">Wishlisht</p>
-
-          <div class="btn-badge" aria-hidden="true">2</div>
-        </button>
-
       </div>
-
-      <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="navbar" data-navbar>
-
-        <div class="navbar-top">
-
-          <a href="#" class="logo">
-            <img src="../img/indexPlantilla/logo.svg" alt="Casmart logo" width="130" height="31">
-          </a>
-
-          <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
-            <ion-icon name="close-outline"></ion-icon>
-          </button>
-
+      <ul class="nav-list">
+        <div class="top">
+          <label for="" class="btn close-btn"><i class="fas fa-times"></i></label>
         </div>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products/productos">Products</a></li>
+        <li>
+          <a href="" class="desktop-item">Shop <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showMega" />
+          <label for="showMega" class="mobile-item">Shop <span><i class="fas fa-chevron-down"></i></span></label>
+          <div class="mega-box">
+            <div class="content">
+              <div class="row">
+                <img src="../images/nav.png" alt="" />
+              </div>
+              <div class="row">
+                <header>Shop Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Shop With Background</a></li>
+                  <li><a href="#">Shop Mini Categories</a></li>
+                  <li><a href="#">Shop Only Categories</a></li>
+                  <li><a href="#">Shop Icon Categories</a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Filter Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Sidebar</a></li>
+                  <li><a href="#">Filter Default</a></li>
+                  <li><a href="#">Filter Drawer</a></li>
+                  <li><a href="#">Filter Dropdown</a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Product Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Layout Zoom</a></li>
+                  <li><a href="#">Layout Sticky</a></li>
+                  <li><a href="#">Layout Sticky 2</a></li>
+                  <li><a href="#">Layout Scroll</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="">Blog</a></li>
+        <li>
+          <a href="" class="desktop-item">Vendors <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showdrop1" />
+          <label for="showdrop1" class="mobile-item">Vendors <span><i class="fas fa-chevron-down"></i></span></label>
+          <ul class="drop-menu1">
+            <li><a href="">Vendor Store listings</a></li>
+            <li><a href="">Store Details</a></li>
+          </ul>
+        </li>
 
-        <ul class="navbar-list">
-
-          <li>
-            <a href="#home" class="navbar-link">Home</a>
-          </li>
-
-          <li>
-            <a href="/products/productos" class="navbar-link">Shop</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">About</a>
-          </li>
-
-          <li>
-            <a href="#blog" class="navbar-link">Blog</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Contact</a>
-          </li>
-
-        </ul>
-
-      </nav>
-
+        <li>
+          <a href="" class="desktop-item">Page <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showdrop2" />
+          <label for="showdrop2" class="mobile-item">Page <span><i class="fas fa-chevron-down"></i></span></label>
+          <ul class="drop-menu2">
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Faq</a></li>
+            <li><a href="">Page 404</a></li>
+          </ul>
+        </li>
+        <!-- icons -->
+        <li class="icons">
+          <a href="cart.html">
+            <span>
+            <img src="../images/shoppingBag.svg" alt="" />
+            <small class="count d-flex">0</small>
+          </span>
+          </a>
+          <span><img src="../images/search.svg" alt="" /></span>
+        </li>
+      </ul>
+      <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
     </div>
-  </header>
+  </nav>
 
+  <div class="hero">
+    <div class="row">
+      <div class="swiper-container slider-1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../images/hero-1.png" alt="" />
+            <div class="content">
+              <h1>Super market vegbox
+                <br/>
+                start from 
+                <span>$9</span>
+              </h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
 
-
-
-
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #HERO
-      -->
-
-      <section class="hero" id="home" style="background-image: url('../img/indexPlantilla/hero-banner.jpg')">
-        <div class="container">
-
-          <div class="hero-content">
-
-            <p class="hero-subtitle">Fashion Everyday</p>
-
-            <h2 class="h1 hero-title">Unrivalled Fashion House</h2>
-
-            <button class="btn btn-primary">Shop Now</button>
-
+              <a href="#">Shop Now</a>
+            </div>
           </div>
 
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #SERVICE
-      -->
-
-      <section class="service">
-        <div class="container">
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-item-icon">
-                <img src="../img/indexPlantilla/service-icon-1.svg" alt="Service icon">
-              </div>
-
-              <div class="service-content">
-                <p class="service-item-title">Free Shipping</p>
-
-                <p class="service-item-text">On All Order Over $599</p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-item-icon">
-                <img src="../img/indexPlantilla/service-icon-2.svg" alt="Service icon">
-              </div>
-
-              <div class="service-content">
-                <p class="service-item-title">Easy Returns</p>
-
-                <p class="service-item-text">30 Day Returns Policy</p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-item-icon">
-                <img src="../img/indexPlantilla/service-icon-3.svg" alt="Service icon">
-              </div>
-
-              <div class="service-content">
-                <p class="service-item-title">Secure Payment</p>
-
-                <p class="service-item-text">100% Secure Gaurantee</p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-item-icon">
-                <img src="../img/indexPlantilla/service-icon-4.svg" alt="Service icon">
-              </div>
-
-              <div class="service-content">
-                <p class="service-item-title">Special Support</p>
-
-                <p class="service-item-text">24/7 Dedicated Support</p>
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #CATEGORY
-      -->
-
-      <section class="section category">
-        <div class="container">
-
-          <ul class="category-list">
-
-            <li class="category-item">
-              <figure class="category-banner">
-                <img src="../img/indexPlantilla/category-1.jpg" alt="Sunglass & eye" loading="lazy" width="510" height="600"
-                  class="w-100">
-              </figure>
-
-              <a href="#" class="btn btn-secondary">Camisas</a>
-            </li>
-
-            <li class="category-item">
-              <figure class="category-banner">
-                <img src="../img/indexPlantilla/category-2.jpg" alt="Active & outdoor" loading="lazy" width="510" height="600"
-                  class="w-100">
-              </figure>
-
-              <a href="#" class="btn btn-secondary">Camperas</a>
-            </li>
-
-            <li class="category-item">
-              <figure class="category-banner">
-                <img src="../img/indexPlantilla/category-3.jpg" alt="Winter wear" loading="lazy" width="510" height="600"
-                  class="w-100">
-              </figure>
-
-              <a href="#" class="btn btn-secondary">buzos</a>
-            </li>
-
-            <li class="category-item">
-              <figure class="category-banner">
-                <img src="../img/indexPlantilla/category-4.jpg" alt="Exclusive footwear" loading="lazy" width="510"
-                  height="600" class="w-100">
-              </figure>
-
-              <a href="#" class="btn btn-secondary">Pantalones</a>
-            </li>
-
-            <li class="category-item">
-              <figure class="category-banner">
-                <img src="../img/indexPlantilla/category-5.jpg" alt="Jewelry" loading="lazy" width="510" height="600"
-                  class="w-100">
-              </figure>
-
-              <a href="#" class="btn btn-secondary">Calzados</a>
-            </li>
-
-            <li class="category-item">
-              <figure class="category-banner">
-                <img src="../img/indexPlantilla/category-6.jpg" alt="Sports cap" loading="lazy" width="510" height="600"
-                  class="w-100">
-              </figure>
-
-              <a href="#" class="btn btn-secondary">remeras</a>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #PRODUCT
-      -->
-
-      <section class="section product">
-        <div class="container">
-
-          <h2 class="h2 section-title">Products of the week</h2>
-
-          <ul class="filter-list">
-
-            <li>
-              <button class="filter-btn  active">Best Seller</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Hot Collection</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Trendy</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">New Arrival</button>
-            </li>
-
-          </ul>
-
-          <ul class="product-list">
-
-            <!-- tarjetas de productos -->
-
-            <% camperas.forEach(e => { %>
-
-              <li>
-                <div class="product-card">
-  
-                  <figure class="card-banner">
-  
-                    <a href="/products/detalleproducto/<%= e.id %>">
-                      <img src="../img/indexPlantilla/<%= e.images[0] ? e.images[0].file : null %>" alt="Varsi Leather Bag" loading="lazy" width="800"
-                        height="1034" class="w-100">
-                    </a>
-  
-                    <div class="card-badge red"> -25%</div>
-  
-                    <div class="card-actions">
-  
-                      <button class="card-action-btn" aria-label="Quick view">
-                        <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-  
-                      <button class="card-action-btn cart-btn">
-                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-  
-                        <p>Add to Cart</p>
-                      </button>
-  
-                      <button class="card-action-btn" aria-label="Add to Whishlist">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-  
-                    </div>
-  
-                  </figure>
-  
-                  <div class="card-content">
-                    <h3 class="h4 card-title">
-                      <a href="#"><%= e.name %></a>
-                    </h3>
-  
-                    <div class="card-price">
-                      <data >$<%= e.price %></data>
-  
-                    </div>
-                  </div>
-  
-                </div>
-              </li>
-             
-            <% }) %>
-            
-
-
-
-          </ul>
-
-          <button class="btn btn-outline">View All Products</button>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #BLOG
-      -->
-
-      <section class="section blog">
-        <div class="container">
-
-          <h2 class="h2 section-title">Latest fashion news</h2>
-
-          <ul class="blog-list">
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="../img/indexPlantilla/blog-1.jpg" alt="Worthy Cyber Monday Fashion From Casmart" loading="lazy"
-                      width="1020" height="700" class="w-100">
-                  </a>
-                </figure>
-
-                <div class="card-content">
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="folder-open-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">Fashion</a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">
-                        <time datetime="2021-03-31">31 Mar 2021</time>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Worthy Cyber Monday Fashion From Casmart</a>
-                  </h3>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="../img/indexPlantilla/blog-2.jpg" alt="Holiday Home Decoration I’ve Recently Ordered"
-                      loading="lazy" width="1020" height="700" class="w-100">
-                  </a>
-                </figure>
-
-                <div class="card-content">
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="folder-open-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">Fashion</a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">
-                        <time datetime="2021-03-31">31 Mar 2021</time>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Holiday Home Decoration I’ve Recently Ordered</a>
-                  </h3>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="../img/indexPlantilla/blog-3.jpg" alt="Unique Ideas for Fashion You Haven’t heard yet"
-                      loading="lazy" width="1020" height="700" class="w-100">
-                  </a>
-                </figure>
-
-                <div class="card-content">
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="folder-open-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">Fashion</a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="time-outline"></ion-icon>
-
-                      <a href="#" class="card-meta-link">
-                        <time datetime="2021-03-31">31 Mar 2021</time>
-                      </a>
-                    </li>
-
-                  </ul>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Unique Ideas for Fashion You Haven’t heard yet</a>
-                  </h3>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #NEWSLETTER
-      -->
-
-      <section class="section newsletter">
-        <div class="container">
-
-          <div class="newsletter-card" style="background-image: url('../img/indexPlantilla/newsletter-bg.png')">
-
-            <h2 class="card-title">Subscribe Newsletter</h2>
-
-            <p class="card-text">
-              Enter your email below to be the first to know about new collections and product launches.
-            </p>
-
-            <form action="" class="card-form">
-
-              <div class="input-wrapper">
-                <ion-icon name="mail-outline"></ion-icon>
-
-                <input type="email" name="emal" placeholder="Enter your email" required class="input-field">
-              </div>
-
-              <button type="submit" class="btn btn-primary w-100">
-                <span>Subscribe</span>
-
-                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-              </button>
-
-            </form>
-
+          <div class="swiper-slide">
+            <img src="../images/hero-2.png" alt="hero image" />
+            <div class="content">
+              <h1>You first Order
+                <br/>
+                <span>20% off</span>
+                at Juice
+              </h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <a href="#">Shop Now</a>
+            </div>
           </div>
-
+          
+          <div class="swiper-slide">
+            <img src="../images/hero-3.png" alt="hero image" />
+            <div class="content">
+              <h1>You first Order
+                <br/>
+                <span>20% off</span>
+                at Juice
+              </h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <a href="#">Shop Now</a>
+            </div>
+          </div>
         </div>
-      </section>
-
-    </article>
-  </main>
-
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
-  <footer class="footer">
-
-    <div class="footer-top">
-      <div class="container">
-
-        <div class="footer-brand">
-
-          <a href="#" class="logo">
-            <img src="../img/indexPlantilla/logo.svg" alt="Casmart logo">
-          </a>
-
-          <p class="footer-text">
-            Casmart is a fashion theme for presents a complete wardrobe of uniquely crafted Ethnic Wear, Casuals, Edgy
-            Denims, &
-            Accessories inspired from the most contemporary
-          </p>
-
-          <ul class="social-list">
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-pinterest"></ion-icon>
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Information</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">About Company</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Payment Type</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Awards Winning</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">World Media Partner</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Become an Agent</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Refund Policy</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Category</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Handbags & Wallets</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Women's Clothing</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Plus Sizes</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Complete Your Look</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Baby Corner</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Man & Woman Shoe</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Help & Support</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Dealers & Agents</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">FAQ Information</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Return Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Shipping & Delivery</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Order Tranking</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">List of Shops</a>
-          </li>
-
-        </ul>
-
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
-        </p>
-
-        <ul class="footer-bottom-list">
-
-          <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">Terms & Conditions</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-bottom-link">Sitemap</a>
-          </li>
-
-        </ul>
-
-        <div class="payment">
-          <p class="payment-title">We Support</p>
-
-          <img src="../img/indexPlantilla/payment-img.png" alt="Online payment logos" class="payment-img">
+    <!-- Carousel Navigation -->
+    <div class="arrows d-flex">
+        <div class="swiper-prev d-flex">
+          <i class="bx bx-chevrons-left swiper-icon"></i>
         </div>
+        <div class="swiper-next d-flex">
+          <i class="bx bx-chevrons-right swiper-icon"></i>
+        </div>
+    </div>
+  </div>
 
+  <!-- Promotion -->
+
+  <section class="section promotion">
+    <div class="title">
+      <h2>Shop Collections</h2>
+      <span>Select from the premium product and save plenty money</span>
+    </div>
+
+    <div class="promotion-layout container">
+      <div class="promotion-item">
+        <img src="/img/ropa/fotoindex.png" alt="" />
+        <div class="promotion-content">
+          <h3>JUICE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="/img/ropa/fotoindex2.png" alt="" />
+        <div class="promotion-content">
+          <h3>MANGO</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="/img/ropa/fotoindex3.jpg" alt="" />
+        <div class="promotion-content">
+          <h3>GRAPES</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="/img/ropa/fotoindex.png" alt="" />
+        <div class="promotion-content">
+          <h3>POTATOE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="/img/ropa/fotoindex2.png" alt="" />
+        <div class="promotion-content">
+          <h3>ORANGE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="/img/ropa/fotoindex3.jpg" alt="" />
+        <div class="promotion-content">
+          <h3>PINEAPPLE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section class="section featured">
+    <div class="title">
+      <h2>Featured Products</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+
+    <div class="row container">
+      <div class="swiper-container slider-2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-1.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="productDetails.html">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-8.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-10.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-7.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-6.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-5.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-1.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <div class="img-container">
+                <img src="../images/product-10.jpg" alt="" />
+                <div class="addCart">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+
+                <ul class="side-icons">
+                  <span><i class="fas fa-search"></i></span>
+                  <span><i class="far fa-heart"></i></span>
+                  <span><i class="fas fa-sliders-h"></i></span>
+                </ul>
+              </div>
+              <div class="bottom">
+                <a href="">Bambi Print Mini Backpack</a>
+                <div class="price">
+                  <span>$150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+     <!-- Carousel Navigation -->
+    <div class="arrows d-flex">
+       <div class="custom-next d-flex">
+          <i class="bx bx-chevrons-right swiper-icon"></i>
+        </div>
+        <div class="custom-prev d-flex">
+          <i class="bx bx-chevrons-left swiper-icon"></i>
+        </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section products">
+    <div class="title">
+      <h2>New Products</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+
+    <div class="product-layout">
+
+      <% camperas.forEach(elemento => { %>
+       
+        <div class="product">
+          <a href="/products/detail/<%= elemento.id %>">
+          <div class="img-container">
+            <img src="../img/ropa/<%= elemento.images[0] ? elemento.images[0].file : null %>" alt="" />
+            <div class="addCart">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+  
+            <ul class="side-icons">
+              <span><i class="fas fa-search"></i></span>
+              <span><i class="far fa-heart"></i></span>
+              <span><i class="fas fa-sliders-h"></i></span>
+            </ul>
+          </div>
+        </a>
+          <div class="bottom">
+            <a href=""><%= elemento.name %></a>
+            <div class="price">
+              <span>$<%= elemento.price %></span>
+            </div>
+          </div>
+        </div>
+
+      <% }) %>
+
+
+    </div>
+  </section>
+
+  <!-- ADVERT -->
+  <section class="section advert">
+    <div class="advert-layout container">
+      <div class="item ">
+        <img src="../images/banner1.jpg" alt="">
+        <div class="content left">
+          <span>Exclusive Sales</span>
+          <h3>Spring Collections</h3>
+          <a href="">View Collection</a>
+        </div>
+      </div>
+      <div class="item">
+        <img src="../images/banner2.jpg" alt="">
+        <div class="content  right">
+          <span>New Trending</span>
+          <h3>Designer Bags</h3>
+          <a href="">Shop Now </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="section brands">
+    <div class="title">
+      <h2>Shop by Brand</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+
+    <div class="brand-layout container">
+      <div class="swiper-container slider-3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../images/brand1.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/brand2.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/brand3.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/brand4.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/brand5.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/brand6.png" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/brand7.png" alt="">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, USA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div class="payment-methods">
+            <img src="../images/payment.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </footer>
+  <!-- End Footer -->
 
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="../js/scriptPlantilla.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <!-- ======== SwiperJS ======= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
+  <!-- Custom Scripts -->
+  <script src="../js/index.js"></script>
+  <script src="../js/slider.js"></script>
 </body>
 
 </html>
+
+
+
+            
+
+
