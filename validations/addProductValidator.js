@@ -1,12 +1,12 @@
 const {check} = require('express-validator')
 
 module.exports = [
-    check('titulo')
+    check('name')
     .notEmpty().withMessage('el titulo es obligatorio'),
 
-    check('precio')
+    check('price')
     .notEmpty().withMessage('el precio es obligatorio'),
 
-    check('categoria')
+    check('categoryId')
     .notEmpty().withMessage('la categoria es obligatorio')
 ]

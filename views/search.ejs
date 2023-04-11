@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="./images/favicon.png" type="image/png" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   
@@ -33,7 +33,7 @@
           <label for="" class="btn close-btn"><i class="fas fa-times"></i></label>
         </div>
         <li><a href="/">Home</a></li>
-        <li><a href="#">Products</a></li>
+        <li><a href="/products/productos">Products</a></li>
         <li>
           <a href="" class="desktop-item">Shop <span><i class="fas fa-chevron-down"></i></span></a>
           <input type="checkbox" id="showMega" />
@@ -228,10 +228,13 @@
         </div>
       </div>
       <div class="col-3-of-4">
+
         <form id="form-search-header" action="/products/search" class="d-flex" method="GET">
-          <input id="input-search-header" name="keywords" class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
-          <button type="submit" id="btn-search" class="btn btn-outline-light"><i class="fas fa-search"></i></button>
-        </form>
+            <input id="input-search-header" name="keywords" class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+            <button type="submit" id="btn-search" class="btn btn-outline-light"><i class="fas fa-search"></i></button>
+          </form>
+          <h2>resultados de la busqueda de : <%= busqueda %></h2>
+
         <form action="">
           <div class="item">
             <label for="sort-by">Sort By</label>
@@ -253,33 +256,48 @@
         </form>
 
         <div class="product-layout">
+            <% if (resultados.length > 0) { %>
+             
+                
 
-          <% datos.forEach(producto => { %>
+                <% resultados.forEach(producto => { %>
            
-            <div class="product">
-              <a href="/products/detail/<%= producto.id %>">
-              <div class="img-container">
-                <img src="/img/ropa/<%= producto.images[0] ? producto.images[0].file : null %>" alt="" />
-                <div class="addCart">
-                  <i class="fas fa-shopping-cart"></i>
-                </div>
-  
-                <ul class="side-icons">
-                  <span><i class="fas fa-search"></i></span>
-                  <span><i class="far fa-heart"></i></span>
-                  <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-              </div>
-            </a>
-              <div class="bottom">
-                <a href="productDetails.html"><%= producto.name %></a>
-                <div class="price">
-                  <span>$<%= producto.price %></span>
-                </div>
-              </div>
-            </div>
+                    <div class="product">
+                      <a href="/products/detail/<%= producto.id %>">
+                      <div class="img-container">
+                        <img src="/img/ropa/<%= producto.images[0] ? producto.images[0].file : null %>" alt="" />
+                        <div class="addCart">
+                          <i class="fas fa-shopping-cart"></i>
+                        </div>
+          
+                        <ul class="side-icons">
+                          <span><i class="fas fa-search"></i></span>
+                          <span><i class="far fa-heart"></i></span>
+                          <span><i class="fas fa-sliders-h"></i></span>
+                        </ul>
+                      </div>
+                    </a>
+                      <div class="bottom">
+                        <a href="productDetails.html"><%= producto.name %></a>
+                        <div class="price">
+                          <span>$<%= producto.price %></span>
+                        </div>
+                      </div>
+                    </div>
+        
+                  <% }) %>
 
-          <% }) %>
+            <% }else{ %>
+
+              <div class="alert alert-warning" role="alert">
+                error no hay resultado de la busqueda de "<%= busqueda %>"
+              </div>
+                  
+
+                
+            <% } %>
+
+         
 
 
         </div>
@@ -362,3 +380,4 @@
 
       
 
+ 

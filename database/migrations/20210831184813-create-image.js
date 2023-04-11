@@ -19,7 +19,7 @@ module.exports = {
           },
           key : 'id'
         },
-        onDelete : 'cascade'
+        onDelete : 'cascade'//esto es para borrar tambien la imagen cuando quiera borrar el producto
       },
       createdAt: {
         allowNull: false,

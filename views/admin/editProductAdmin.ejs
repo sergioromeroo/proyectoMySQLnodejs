@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="/stylesheets/editProduct.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <section class="main">
+
+        <figure class="main__figure">
+            <img src="/img/logo.png" class="main__img">
+        </figure>
+
+        <div class="main__contact">
+
+            <h2 class="main__title">Editor de productos</h2>
+            <p class="main__paragraph">solo el administrador puede editar sus productos</p>
+
+            <form class="main__form" action="/products/edit/<%= producto.id %>?_method=PUT" method="POST">
+
+                <h2>nombre producto</h2>
+                <input type="text" placeholder="Enter a username" class="main__input" name="name" value="<%= producto.name %>">
+
+                <h2>precio del producto</h2>
+
+                <input type="text" placeholder="text" class="main__input" name="price" value="<%= producto.price %>">
+
+                <h2>categorias</h2>
+                <select class="main__input" name="categoryId" id="">
+                    <% categorias.forEach(categoria => { %>
+                     <option  value="<%= categoria.id %>" <%= categoria.id == producto.categoryId ? 'selected' : null %>> <%= categoria.name %> </option>
+                    <% }) %>
+                </select>
+                
+
+
+                <h2>descripcion</h2>
+                <input type="text" placeholder="Enter a username" class="main__input" name="description" value="<%= producto.description %>">
+
+                <input type="submit" value="guardar" class="main__input main__input--send">
+
+            </form>
+
+<!--             <p class="main__paragraph">Or continue with</p>
+
+            <article class="main__social">
+
+                <a href="#" class="main__link">
+                    <img src="./img/google-icon.svg" class="main__icon">
+                </a>
+
+                <a href="#" class="main__link">
+                    <img src="./img/apple.svg" class="main__icon">
+                </a>
+
+                <a href="#" class="main__link">
+                    <img src="./img/facebook.svg" class="main__icon">
+                </a>
+
+            </article> -->
+
+        </div>
+
+    </section>
+
+
+
+</body>
+
+</html>

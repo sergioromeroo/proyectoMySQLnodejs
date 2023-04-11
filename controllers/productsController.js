@@ -7,6 +7,9 @@ const categorias = require('../data/categoriasdb')
 const { validationResult } = require('express-validator')
 
 const database = require('../database/models')
+const { sequelize } = require('../database/models')
+const {Op} = require('sequelize')
+
 
 
 module.exports = {
@@ -34,44 +37,81 @@ module.exports = {
     },
 
 
-    add: (req, res) => {
-        //res.send(categorias)
-        return res.render('addProducts', {
-            categorias
-        })
+
+    admin : (req,res) =>{
+
+        database.Product.findAll({
+            include : [
+                {association : 'category'}
+            ]
+        }).then(productos => res.render('admin/indexAdmin',{
+            productos/* este productos es el que pongo en foreach de la vista de admin */
+        }))
+
     },
 
-    //ruta post el save para el formulario de addproduct
-    save: (req, res) => {
-        //res.send(req.body) la info de POST que recibo del formulario va por BODY
-        let errors = validationResult(req);
-        //return res.send(errors)
-        if (errors.isEmpty()) {
-            const { titulo, categoria, precio } = req.body
 
-            //mi objeto literal q capturo los datos del formulario
-            let producto = {
-                id: productosdb[productosdb.length - 1].id + 1,
-                titulo,
-                imagen: req.file ? req.file.filename : ['default-image.png'],
-                categoria,
-                precio
-            }
-            productosdb.push(producto)
-            //return res.send(productosdb) //para verlo como json en el navegador lo nuevo q mando
 
-            guardar(productosdb)
-            return res.redirect('/')
-        } else {
-            return res.render('addProducts', {
-                categorias,
-                productosdb,
-                errores: errors.mapped(),//quiero mapear el errors para poder usarlo como span y dejar el msg de error
-                old: req.body//old para que me recuerde lo que escribio el usuario y no este volviendo a poner su titulo o precio o cate en el formulario
+    add : (req, res) => {
+        database.Category.findAll()
+        .then(categorias =>{
+            return res.render('admin/agregarProduct',{
+                categorias
             })
-        }
+
+        }).catch(error => console.log(error))
 
     },
+    save: (req, res) => {
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            const { name, description, price, categoryId } = req.body;
+
+            database.Product.create({ //creo el producto
+                
+                name: name.trim(),
+                description: description.trim(),
+                price,
+                categoryId
+
+            }).then(product => {
+
+                //if si viene imagenes capturo esas imagenes la guardo en array cuando le hago map y lo recorro y le creo objeto file y productId
+                if (req.files) {//si hay imagenes que haga lo siguiente 
+                    var ima = [];
+                    var imagenes = req.files.map(imagen => imagen.filename);
+                    imagenes.forEach(img => {
+                        var image = {
+                            file: img,
+                            productId: product.id
+                        }
+                        ima.push(image)
+                        database.Image.create({...image})
+                        .then((image) => console.log(image))
+                    });
+
+                   /*  database.Image.bulkCreate(images, { validate: true })
+                        .then(() => console.log('imagenes agregadas con exito')) */
+                }
+
+                return res.redirect('/products/admin')
+            }).catch(error => console.log(error))
+
+        } else {
+            database.Category.findAll()
+                .then(categorias => {
+                    return res.render('admin/agregarProduct', {
+                        categorias,
+                        errores: errors.mapped(),
+                        old: req.body
+                    })
+                }).catch(error => console.log(error))
+        }
+    },
+
+
+
     detail: (req, res) => {
 
         database.Product.findOne({
@@ -92,6 +132,7 @@ module.exports = {
                     {
                         association: 'products',
                         include: [{ association: 'images' }],
+                        limit : 4
 
                     }
                 ]
@@ -110,52 +151,84 @@ module.exports = {
         //let producto = productosdb.find(producto => producto.id === req.params.id) //asi si el id q esta en mi data es un string 
         // +req.params.id asi si el id de mi data es un number 01 02 03 sin comillas
     },
-    search: (req, res) => {
-        //res.send(req.query)
-        let result = productosdb.filter(producto => producto.titulo.toLowerCase().includes(req.query.search.toLowerCase().trim()))//la info que recibo por GET es QUERY
-        return res.render('searchResult', {
-            result,
-            productosdb,
-            busqueda: req.query.search
-        })
-    },
+
+
+
+
 
     edit: (req, res) => {
-        let producto = productosdb.find(producto => producto.id === req.params.id)
-        return res.render('editProduct', {
-            producto,
-            productosdb,
-            categorias
-        })
+        let categorias = database.Category.findAll();
+        let producto = database.Product.findByPk(req.params.id);
+        Promise.all([categorias, producto])
+            .then(([categorias, producto]) => {
+                return res.render('admin/editProductAdmin', {
+                    categorias,
+                    producto
+                })
+            })
+
     },
     update: (req, res) => {
-        const { titulo, categoria, precio } = req.body;
-
-        let producto = productosdb.find(producto => producto.id === req.params.id)
-        let productoEditado = {
-            id: req.params.id,
-            titulo,
-            categoria,
-            precio,
-            imagen: req.file ? req.file.filename : producto.imagen
-        }
-        productoModificados = productosdb.map(producto => producto.id === req.params.id ? productoEditado : producto)
-
-        guardar(productoModificados)
-        return res.redirect('/')
+        const { name,description,price,categoryId } = req.body;
 
 
-    },
-    destroy: (req, res) => {
-        productosdb.forEach(producto => {
-            if (producto.id === req.params.id) {
-                let productoEliminar = productosdb.indexOf(producto)
-                productosdb.splice(productoEliminar, 1)
+        database.Product.update(
+            {
+                name : name.trim(),
+                description: description.trim(),
+                price,
+                categoryId
+            },
+            {
+                where : {//que producto quiero cambiar el id que corresponda al que venga por parametro
+                    id : req.params.id
+                }
             }
-        });
-/*         productoEliminar = productosdb.filter(producto=>producto.id !== req.params.id)
- */        guardar(productosdb)
-        return res.redirect('/')
+        ).then(()=>res.redirect('/products/admin')) //then luego que ocurra lo de arriba puedo mandar un msj swift alert puedo poner si quiero
+            .catch(error => console.log(error))
+    
+        },
+
+
+
+
+        search: (req, res) => {
+            //res.send(req.query)
+
+            let resultados = database.Product.findAll({
+                where : {
+                    [Op.or]:[
+                        {
+                            name : {
+                                [Op.substring] : req.query.keywords
+                            }
+                        }
+                    ]
+                },
+                include : [
+                    {association : 'images'},
+                    {association : 'category'}
+                ]
+            })
+            let categoriasResultado = database.Category.findAll();
+            Promise.all([resultados,categoriasResultado])
+            .then(([resultados,categoriasResultado]) => res.render('search',{
+                resultados,
+                categoriasResultado,
+                busqueda : req.query.keywords
+            })).catch(error => console.log(error))
+        },
+
+
+
+    destroy: (req, res) => {
+
+        database.Product.destroy({
+            where : {
+                id : req.params.id
+            }
+        }).then(()=>res.redirect('/products/admin'))
+        .catch(error => console.log(error))
     },
 
 

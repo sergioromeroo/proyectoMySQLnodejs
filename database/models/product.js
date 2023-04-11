@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
       Product.hasMany(models.Image,{
         as : 'images',
-        onDelete : 'cascade'
+        onDelete : 'cascade'//esto es para borrar tambien la imagen associada cuando quiera borrar el producto
       })
     }
   };
