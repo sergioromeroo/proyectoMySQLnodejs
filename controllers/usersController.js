@@ -1,37 +1,36 @@
 const {usuariosdb,guardar} = require('../data/usersdb')
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
+const database = require('../database/models')
 
 module.exports = {
     register : (req,res) => {
-        return res.render('register')
+        return res.render('users/register')
     },
     processRegister: (req,res) =>{
-        let errors = validationResult(req)
-        let {nombre,email,contrasenia} = req.body;
-        if(errors.isEmpty()){
-            let usuario = {
-                id : usuariosdb.length > 0 ? usuariosdb[usuariosdb.length - 1].id + 1 : 1,
-                nombre,
-                email,
-                contrasenia: bcrypt.hashSync(contrasenia,10),
-                rol : "user"
-            }
-            usuariosdb.push(usuario)
-            guardar(usuariosdb)
 
-            req.session.userLogin = {
-                id : usuario.id,
-                nombre : usuario.nombre,
-                rol : usuario.rol
-            }
+        let errors = validationResult(req);
+        let {name,email,password} = req.body;
+      if(errors.isEmpty()){
 
-            return res.redirect('/')
+            database.User.create({
+                name : name.trim(),
+                email : email.trim(),
+                password : bcrypt.hashSync(password,10),
+                avatar : 'default.png',
+                rolId : 1
+            }).then(user => {
+                req.session.userLogin = {
+                    id : user.id,
+                    name : user.name,
+                    rol : user.rol
+                }
+                return res.redirect('/')
+            }).catch(error => console.log(error))
         }else{
-            return res.render('register',{
-                
-                errores : errors.mapped(),
-                old : req.body
+            return res.render('users/register',{
+                old : req.body,
+                errores : errors.mapped()
             })
         }
 
@@ -41,25 +40,8 @@ module.exports = {
         return res.render('login')
     },
     processLogin : (req,res) => {
-        let errors = validationResult(req);
-        const {email} = req.body;
-        if(errors.isEmpty()){
-            let usuario = usuariosdb.find(usuario => usuario.email === email)
-            req.session.userLogin = {
-                id : usuario.id,
-                nombre : usuario.nombre,
-                rol : usuario.rol
-            }
-/*             if(recordar){
-                res.cookie('airesAcondicionado',req.session.userLogin,{maxAge: 1000 * 60})
-            } */
-            return res.redirect('/')
-        }else{
-            return res.render('login',{
-                
-                errores : errors.mapped()
-            })
-        }
+
+
     },
     logout : (req,res) => {
         req.session.destroy();
