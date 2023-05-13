@@ -8,11 +8,8 @@
   <link rel="shortcut icon" href="../images/favicon.png" type="image/png" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
- <!-- ======== Swiper Js ======= -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css"
-    />
+  <!-- ======== Swiper Js ======= -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css" />
 
   <!-- Boxicons -->
   <link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
@@ -23,12 +20,13 @@
 
 <body>
 
+
   <!-- Navigation -->
   <nav class="nav">
     <div class="wrapper container">
       <div class="logo"><a href="">
-        <img src="../images/logo.png" alt="">
-      </a>
+          <img src="../images/logo.png" alt="">
+        </a>
       </div>
       <ul class="nav-list">
         <div class="top">
@@ -87,27 +85,59 @@
         </li>
 
         <li>
-          <a  class="desktop-item">Perfil <span><i class="fas fa-chevron-down"></i></span></a>
-          <input type="checkbox" id="showdrop2" />
-          <label for="showdrop2" class="mobile-item">Page <span><i class="fas fa-chevron-down"></i></span></label>
-          <ul class="drop-menu2">
-            <li><a href="/products/add">Agregar Producto</a></li>
-            <li><a href="/products/admin">Administracion</a></li>
-            <li><a href="">#</a></li>
-            <li><a href="">Cerrar Session</a></li>
-          </ul>
+          <% if (locals.userLogin) { %>  
+                          <!-- vista usuario logeado -->
+            <a class="desktop-item">Perfil <span><i class="fas fa-chevron-down"></i></span></a>
+            <input type="checkbox" id="showdrop2" />
+            <label for="showdrop2" class="mobile-item">Page <span><i class="fas fa-chevron-down"></i></span></label>
+            <ul class="drop-menu2">
+              <li><a href="">bienvenido: <%= locals.userLogin.name %></a></li>
+              <li><a href="/users/profile">Ver mis datos</a></li>
+              <li><a href="/users/logout">Cerrar Session</a></li>
+            </ul>
+
+            <% if (locals.userLogin.rol===2) { %>
+              <!-- vista solo del administrador -->
+              <input type="checkbox" id="showdrop2" />
+              <label for="showdrop2" class="mobile-item">Page <span><i class="fas fa-chevron-down"></i></span></label>
+              <ul class="drop-menu2">
+                <li><a href="/products/add">Agregar Producto</a></li>
+                <li><a href="/products/admin">Administracion de productos</a></li>
+                <li><a href="">bienvenido: <%= locals.userLogin.name %></a></li>
+                <li><a href="/users/logout">Cerrar Session</a></li>
+              </ul>
+
+              <% } %>
+
+                <% }else{ %>
+                  <!-- usuario no logeado recien entra -->
+                  <a class="desktop-item">Perfil <span><i class="fas fa-chevron-down"></i></span></a>
+                  <input type="checkbox" id="showdrop2" />
+                  <label for="showdrop2" class="mobile-item">Page <span><i
+                        class="fas fa-chevron-down"></i></span></label>
+                  <ul class="drop-menu2">
+                    <li><a href="" onclick="return confirm('debes iniciar session')">Ver mi Perfil</a></li>
+                    <li><a href="">No has iniciado session</a></li>
+                  </ul>
+
+                  <% } %>
+
         </li>
+
+
         <!-- icons -->
         <li class="icons">
           <a href="cart.html">
             <span>
-            <img src="../images/shoppingBag.svg" alt="" />
-            <small class="count d-flex">0</small>
-          </span>
+              <img src="../images/shoppingBag.svg" alt="" />
+              <small class="count d-flex">0</small>
+            </span>
           </a>
-          <span><img src="../images/search.svg" alt="" /></span>
+
+
         </li>
       </ul>
+
       <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
     </div>
   </nav>
@@ -120,11 +150,12 @@
             <img src="../images/hero-1.png" alt="" />
             <div class="content">
               <h1>Super market vegbox
-                <br/>
-                start from 
+                <br />
+                start from
                 <span>$9</span>
               </h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis
+                alias.</p>
 
               <a href="#">Shop Now</a>
             </div>
@@ -134,24 +165,26 @@
             <img src="../images/hero-2.png" alt="hero image" />
             <div class="content">
               <h1>You first Order
-                <br/>
+                <br />
                 <span>20% off</span>
                 at Juice
               </h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis
+                alias.</p>
               <a href="#">Shop Now</a>
             </div>
           </div>
-          
+
           <div class="swiper-slide">
             <img src="../images/hero-3.png" alt="hero image" />
             <div class="content">
               <h1>You first Order
-                <br/>
+                <br />
                 <span>20% off</span>
                 at Juice
               </h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis
+                alias.</p>
               <a href="#">Shop Now</a>
             </div>
           </div>
@@ -159,20 +192,25 @@
       </div>
     </div>
 
+
     <!-- Carousel Navigation -->
     <div class="arrows d-flex">
-        <div class="swiper-prev d-flex">
-          <i class="bx bx-chevrons-left swiper-icon"></i>
-        </div>
-        <div class="swiper-next d-flex">
-          <i class="bx bx-chevrons-right swiper-icon"></i>
-        </div>
+      <div class="swiper-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+      <div class="swiper-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
     </div>
   </div>
 
+
+
   <!-- Promotion -->
 
+
   <section class="section promotion">
+
     <div class="title">
       <h2>Shop Collections</h2>
       <span>Select from the premium product and save plenty money</span>
@@ -419,14 +457,14 @@
       </div>
     </div>
 
-     <!-- Carousel Navigation -->
+    <!-- Carousel Navigation -->
     <div class="arrows d-flex">
-       <div class="custom-next d-flex">
-          <i class="bx bx-chevrons-right swiper-icon"></i>
-        </div>
-        <div class="custom-prev d-flex">
-          <i class="bx bx-chevrons-left swiper-icon"></i>
-        </div>
+      <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
     </div>
   </section>
 
@@ -439,32 +477,34 @@
 
     <div class="product-layout">
 
-      <% camperas.forEach(elemento => { %>
-       
+      <% camperas.forEach(elemento=> { %>
+
         <div class="product">
           <a href="/products/detail/<%= elemento.id %>">
-          <div class="img-container">
-            <img src="../img/ropa/<%= elemento.images[0] ? elemento.images[0].file : null %>" alt="" />
-            <div class="addCart">
-              <i class="fas fa-shopping-cart"></i>
+            <div class="img-container">
+              <img src="../img/ropa/<%= elemento.images[0] ? elemento.images[0].file : null %>" alt="" />
+              <div class="addCart">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+
+              <ul class="side-icons">
+                <span><i class="fas fa-search"></i></span>
+                <span><i class="far fa-heart"></i></span>
+                <span><i class="fas fa-sliders-h"></i></span>
+              </ul>
             </div>
-  
-            <ul class="side-icons">
-              <span><i class="fas fa-search"></i></span>
-              <span><i class="far fa-heart"></i></span>
-              <span><i class="fas fa-sliders-h"></i></span>
-            </ul>
-          </div>
-        </a>
+          </a>
           <div class="bottom">
-            <a href=""><%= elemento.name %></a>
+            <a href="">
+              <%= elemento.name %>
+            </a>
             <div class="price">
               <span>$<%= elemento.price %></span>
             </div>
           </div>
         </div>
 
-      <% }) %>
+        <% }) %>
 
 
     </div>
@@ -523,7 +563,7 @@
           <div class="swiper-slide">
             <img src="../images/brand7.png" alt="">
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -588,6 +628,8 @@
   <!-- End Footer -->
 
   <!-- ======== SwiperJS ======= -->
+  <script src="../js/alert.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
   <!-- Custom Scripts -->
   <script src="../js/index.js"></script>
@@ -595,9 +637,3 @@
 </body>
 
 </html>
-
-
-
-            
-
-

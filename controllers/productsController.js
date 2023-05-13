@@ -38,17 +38,7 @@ module.exports = {
 
 
 
-    admin : (req,res) =>{
-
-        database.Product.findAll({
-            include : [
-                {association : 'category'}
-            ]
-        }).then(productos => res.render('admin/indexAdmin',{
-            productos/* este productos es el que pongo en foreach de la vista de admin */
-        }))
-
-    },
+    admin : (req,res) => res.render('admin/indexAdmin'),
 
 
 

@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Product.init({
-    name: {
+    name: { 
       type : DataTypes.STRING,
       allowNull : false,
       validate : {

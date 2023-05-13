@@ -15,6 +15,16 @@ body{
     display: flex;
 }
 
+.register-form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main .form-control{
+    width: 65%;
+}
+
 .main{
     margin: auto;
     width: 90%;

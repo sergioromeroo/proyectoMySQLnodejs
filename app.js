@@ -6,11 +6,10 @@ var logger = require('morgan');
 
 const methodOverride = require('method-override')
 
-
 const session = require('express-session')
 
 const localsUserCheck = require('./middlewares/localsUserCheck')
-
+const coockieCheck = require('./middlewares/cookieCheck')
 
 
 var indexRouter = require('./routes/index');
@@ -32,14 +31,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'));
 app.use(session({
-  secret : "my secret"
+  secret : "my secret",
+  resave: false,
+  saveUninitialized:true
 }))
 
 app.use(localsUserCheck)//colocarlo aca porq si lo pongo antes no anda
+app.use(coockieCheck)//por si cierra el navegador y vuelve a entrar q la cookies siga existiendo
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+app.use('/apis',require('./routes/api/apis'))//creo la ruta para que pise con /apis
+app.use('/apis',require('./routes/api/apiUsers'))//creo la ruta para que pise con /apis
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
