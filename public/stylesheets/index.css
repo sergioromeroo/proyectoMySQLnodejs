@@ -681,8 +681,8 @@
   }
   
   .product {
-    overflow: hidden;
-  }
+/*     overflow: hidden;
+ */  }
   
   .product .img-container {
     position: relative;
@@ -691,7 +691,7 @@
   
   .product .img-container img {
     object-fit: cover;
-    height: 100%;
+    height: 30rem;
     width: 100%;
   }
   
